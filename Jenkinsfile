@@ -7,9 +7,11 @@ pipeline {
 
     stages {
         stage("Pulling git repo and building the image") {
-            container("kaniko") {
-                git url: "https://github.com/JIN4HOCTb/DevOps-2-docker-.git", branch: "main"
-                sh "/kaniko/executor --context . --destination h0neyball/test:${env.BUILD_NUMBER}"
+            steps{
+                container("kaniko") {
+                    git url: "https://github.com/JIN4HOCTb/DevOps-2-docker-.git", branch: "main"
+                    sh "/kaniko/executor --context . --destination h0neyball/test:${env.BUILD_NUMBER}"
+                }
             }
         }
 
