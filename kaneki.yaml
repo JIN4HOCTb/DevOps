@@ -13,7 +13,7 @@ spec:
       volumeMounts:
         - name: docker-cred
           mountPath: /kaniko/.docker
-volumes:
+  volumes:
     - name: docker-cred
       secret:
         secretName: dockercred
